@@ -1,6 +1,8 @@
 import {Button, MenuItem, Modal, TextField, Typography} from "@mui/material";
 import {Box} from "@mui/system";
 import {useState} from "react";
+import axios from "axios";
+import {API} from "@/api/api";
 
 export default function NewStaffModal(){
         const [open, setOpen] = useState(false);
@@ -14,7 +16,9 @@ export default function NewStaffModal(){
 
         const handleSubmit = (e: { preventDefault: () => void; }) => {
             e.preventDefault();
-            console.log(name, role, rate);
+            axios.post(`${API.STAFF}`)
+                .then(response => console.log(response))
+                .catch(e => console.error(e));
             handleClose();
         }
 
