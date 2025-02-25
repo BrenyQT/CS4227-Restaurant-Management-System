@@ -9,12 +9,13 @@ export default function NewFoodModal(){
     const handleClose = () => setOpen(false);
 
     const [name, setName] = useState<string>("");
-    const [role, setRole] = useState<string>("");
-    const [rate, setRate] = useState<string>("");
+    const [price, setPrice] = useState<string>("");
+    const [cost, setCost] = useState<string>("");
+    const [hyperlink, setHyperlink] = useState<string>("");
+
 
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
-        console.log(name, role, rate);
         handleClose();
     }
 
@@ -56,7 +57,7 @@ export default function NewFoodModal(){
                             label="Cost"
                             variant="outlined"
                             value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            onChange={(e) => setCost(e.target.value)}
                             sx={{ mt: 2 }}
                         />
                         <TextField
@@ -64,7 +65,7 @@ export default function NewFoodModal(){
                             label="Price"
                             variant="outlined"
                             value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            onChange={(e) => setPrice(e.target.value)}
                             sx={{ mt: 2 }}
                         />
                         <TextField
@@ -72,7 +73,7 @@ export default function NewFoodModal(){
                             label="Image"
                             variant="outlined"
                             value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            onChange={(e) => setHyperlink(e.target.value)}
                             sx={{ mt: 2 }}
                         />
 
