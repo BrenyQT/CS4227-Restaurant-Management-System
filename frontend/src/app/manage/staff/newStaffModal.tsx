@@ -25,7 +25,7 @@ export default function NewStaffModal(){
         return (
             <div >
                 <Button variant="contained" onClick={handleOpen}>
-                    Open Modal
+                    Add New Staff
                 </Button>
                 <Modal open={open} onClose={handleClose}>
                     <Box

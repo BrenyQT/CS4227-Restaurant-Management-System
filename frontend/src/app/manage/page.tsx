@@ -1,23 +1,30 @@
 'use client'
 
 import {useRouter} from "next/navigation";
+import {NavBar} from "@/app/components/navbar/foodBar";
+import {Button} from "@mui/material";
 
 export default function ManagePage() {
-    const router = useRouter();
     return (
         <div>
-            <h1>Manage Page</h1>
-            <ul>
-                <li>
-                    <button onClick={() => router.push('/manage/staff')}>Manage Staff</button>
-                </li>
-                <li>
-                    <button onClick={() => router.push('/manage/tables')}>Manage Tables</button>
-                </li>
-                <li>
-                    <button onClick={() => router.push('/manage/menu')}>Manage Menu</button>
-                </li>
-            </ul>
+            <NavBar />
+            <ManageNav />
         </div>
     );
+}
+
+export function ManageNav() {
+    const router = useRouter();
+
+    return (
+        <>
+            <div className={"flex flex-row justify-between p-3 bg-orange-300"}>
+
+                <Button variant="contained" onClick={() => router.push('/manage/staff')}>Manage Staff</Button>
+                <Button variant="contained" onClick={() => router.push('/manage/tables')}>Manage Tables</Button>
+                <Button variant="contained" onClick={() => router.push('/manage/menu')}>Manage Menu</Button>
+            </div>
+
+        </>
+    )
 }

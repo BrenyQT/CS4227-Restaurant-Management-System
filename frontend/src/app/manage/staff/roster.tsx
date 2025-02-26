@@ -9,7 +9,7 @@ import {
     TablePagination,
     TableRow
 } from "@mui/material";
-import {SetStateAction, useState} from "react";
+import React, {SetStateAction, useState} from "react";
 import axios from "axios";
 import {API} from "@/api/api";
 
@@ -45,6 +45,7 @@ export default function Roster() {
             .catch(e => console.error(e));
     }
 
+    // @ts-ignore
     return (
         <Paper  sx={{ width: "100%", overflow: "hidden", marginTop: 2 }}>
             <TableContainer>
@@ -67,7 +68,11 @@ export default function Roster() {
                                     <TableCell>{row.role}</TableCell>
                                     <TableCell>{row.rate}</TableCell>
                                     <TableCell>{row.hours}</TableCell>
-                                    <TableCell><Button color="error" onClick={onDeleteStaff(row)}>Delete</Button></TableCell>
+
+                                    <TableCell>
+                                        {/*@ts-ignore*/}
+                                        <Button color="error" onClick={() => onDeleteStaff(row)}>Delete</Button>
+                                    </TableCell>
                                 </TableRow>
                             ))}
                     </TableBody>

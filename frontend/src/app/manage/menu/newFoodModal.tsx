@@ -22,7 +22,7 @@ export default function NewFoodModal(){
     return (
         <div >
             <Button variant="contained" onClick={handleOpen}>
-                Open Modal
+                Add New Food
             </Button>
             <Modal open={open} onClose={handleClose}>
                 <Box
