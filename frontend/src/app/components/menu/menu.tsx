@@ -1,13 +1,10 @@
-import {FoodBar} from "@/app/components/navbar/foodBar";
+import {FoodBar, NavBar} from "@/app/components/navbar/foodBar";
 
 
 export function MenuPage() {
     return (
         <>
-            <FoodBar />
-            <div>
-                Menu Page
-            </div>
+            <NavBar />
         </>
     );
 }
