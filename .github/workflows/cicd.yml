@@ -25,6 +25,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Show current directory
+        run: pwd
+
       - name: Install dependancy
         run: npm install
 
