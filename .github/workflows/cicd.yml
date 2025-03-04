@@ -20,6 +20,8 @@ jobs:
       - name: CD to frontend
         run: ls;
              cd frontend;
+             ls;
+             pwd
 
       - name: Set-up Node
         uses: actions/setup-node@v4
