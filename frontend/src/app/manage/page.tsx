@@ -13,6 +13,7 @@ export default function ManagePage() {
     );
 }
 
+// @ts-ignore
 export function ManageNav() {
     const router = useRouter();
 

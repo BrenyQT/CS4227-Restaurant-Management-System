@@ -1,4 +1,5 @@
 {
+  "homepage": "https://brenyqt.github.io/CS4227-Restaurant-Management-System",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
@@ -6,7 +7,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "gh-pages -d out",
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -23,6 +26,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "gh-pages": "^6.3.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
