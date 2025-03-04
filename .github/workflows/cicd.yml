@@ -32,9 +32,10 @@ jobs:
         run: cd frontend; 
              npm ci;
 
-      - name: Build frintend
-        run: cd frontend; 
-             next build;
+      - name: Build frontend
+        run: cd frontend;
+             pwd;
+             run build;
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
