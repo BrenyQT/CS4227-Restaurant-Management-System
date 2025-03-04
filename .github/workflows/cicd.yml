@@ -17,16 +17,10 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: CD to frontend
-        run: cd frontend
-
       - name: Set-up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
-      - name: Show current directory
-        run: pwd
 
       - name: Install dependency
         run: cd frontend; 
@@ -40,7 +34,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           name: 'github-pages'
-          path: build
+          path: ./frontend/.next
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
