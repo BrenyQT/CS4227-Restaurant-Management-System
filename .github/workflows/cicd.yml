@@ -18,7 +18,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: CD to frontend
-        run: cd ./frontend
+        run: dir
+#        run: cd ./frontend
 
       - name: Set-up Node
         uses: actions/setup-node@v4
