@@ -2,10 +2,10 @@
 
 import {useRouter} from "next/navigation";
 import {NavBar} from "@/app/components/navbar/foodBar";
-import {ManageNav} from "@/app/manage/page";
 import {useState} from "react";
 import {Button} from "@mui/material";
 import {motion} from "framer-motion";
+import {ManageNav} from "@/app/components/manageNav/ManageNav";
 
 export default function ManageTables() {
     const router = useRouter();
@@ -20,7 +20,7 @@ export default function ManageTables() {
     );
 }
 
-export function TableLayout() {
+function TableLayout() {
     const [tables, setTables] = useState([]);
     const [tableId, setTableId] = useState(1);
 

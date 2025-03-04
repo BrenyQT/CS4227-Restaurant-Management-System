@@ -4,7 +4,7 @@ import {useRouter} from "next/navigation";
 import Roster from "@/app/manage/staff/roster";
 import NewStaffModal from "@/app/manage/staff/newStaffModal";
 import {ManageButton, NavBar} from "@/app/components/navbar/foodBar";
-import {ManageNav} from "@/app/manage/page";
+import {ManageNav} from "@/app/components/manageNav/ManageNav";
 
 export default function ManagePage() {
     const router = useRouter();

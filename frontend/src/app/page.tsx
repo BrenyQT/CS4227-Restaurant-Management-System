@@ -15,6 +15,6 @@ export default function Home() {
     );
 }
 
-export function isAuthenticated() {
+function isAuthenticated() {
     return true;
 }
