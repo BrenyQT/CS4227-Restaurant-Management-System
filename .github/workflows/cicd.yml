@@ -33,7 +33,8 @@ jobs:
              npm ci;
 
       - name: Build frintend
-        run: next build
+        run: cd frontend; 
+             next build;
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
