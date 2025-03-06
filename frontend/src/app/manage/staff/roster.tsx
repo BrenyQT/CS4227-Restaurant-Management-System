@@ -14,17 +14,10 @@ import axios from "axios";
 import {API} from "@/api/api";
 
 
-export default function Roster() {
-    const rows = [
-        {name: "Milan Kovacs", role: "HIGH", rate: "23.45", hours: "40"},
-        {name: "Johnny Bravo1", role: "HIGH", rate: "23.45", hours: "40"},
-        {name: "Johnny Bravo2", role: "HIGH", rate: "23.45", hours: "40"},
-        {name: "Johnny Bravo3", role: "HIGH", rate: "23.45", hours: "40"},
-        {name: "Johnny Bravo4", role: "HIGH", rate: "23.45", hours: "40"},
-        {name: "Johnny Bravo5", role: "HIGH", rate: "23.45", hours: "40"},
-        {name: "Johnny Bravo6", role: "HIGH", rate: "23.45", hours: "40"},
-        {name: "Johnny Bravo7", role: "HIGH", rate: "23.45", hours: "40"},
-        ];
+export default function Roster(
+    {rows, deleteStaff}: { rows: { name: string; role: string; rate: string; hours: string }[], deleteStaff: (name: string) => void }
+) {
+
 
 
     const [page, setPage] = useState(0);
@@ -40,9 +33,10 @@ export default function Roster() {
     };
 
     const onDeleteStaff = (staffDetails: { name: string; role: string; rate: string; hours: string; }) => {
-        axios.post(`${API.STAFF}/delete`, staffDetails)
-            .then(response => console.log(response))
-            .catch(e => console.error(e));
+        deleteStaff(staffDetails.name);
+        // axios.post(`${API.STAFF}/delete`, staffDetails)
+        //     .then(response => console.log(response))
+        //     .catch(e => console.error(e));
     }
 
     // @ts-ignore
