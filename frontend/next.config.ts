@@ -1,14 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  eslint: {
-      ignoreDuringBuilds: true,
-  },
-  //   typescript: {
-  //     ignoreBuildErrors: true,
-  //   },
-  // output: 'export',
-  // images: {unoptimized: true},
+  output: "export",
+  basePath: '/CS4227-Restaurant-Management-System',
 };
 
 export default nextConfig;
