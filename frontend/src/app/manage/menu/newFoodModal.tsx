@@ -2,9 +2,10 @@ import {useState} from "react";
 import {Button, MenuItem, Modal, TextField, Typography} from "@mui/material";
 import {Box} from "@mui/system";
 
-export default function NewFoodModal(){
+export default function NewFoodModal({addFood}: {
+    addFood: (food: { name: string; img: string | null; price: string; cost: string; quantity: string; }) => void;
+}) {
     const [open, setOpen] = useState(false);
-    const roles = ["HIGH", "LOW"];
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
@@ -16,11 +17,18 @@ export default function NewFoodModal(){
 
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
+
+        addFood({name, img: hyperlink || null, price, cost, quantity: "0"});
+
+        setName("");
+        setPrice("");
+        setCost("");
+        setHyperlink("");
         handleClose();
     }
 
     return (
-        <div >
+        <div>
             <Button variant="contained" onClick={handleOpen}>
                 Add New Food
             </Button>
@@ -39,45 +47,18 @@ export default function NewFoodModal(){
                         borderRadius: 2,
                     }}
                 >
-                    <Typography variant="h6" component="h2">
-                        Add New Food to menu
-                    </Typography>
+                    <Typography variant="h6">Add New Food to Menu</Typography>
                     <form onSubmit={handleSubmit}>
-                        <TextField
-                            fullWidth
-                            label="Name"
-                            variant="outlined"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            sx={{ mt: 2 }}
-                        />
+                        <TextField fullWidth label="Name" variant="outlined" value={name}
+                                   onChange={(e) => setName(e.target.value)} sx={{mt: 2}}/>
+                        <TextField fullWidth label="Cost" variant="outlined" value={cost}
+                                   onChange={(e) => setCost(e.target.value)} sx={{mt: 2}}/>
+                        <TextField fullWidth label="Price" variant="outlined" value={price}
+                                   onChange={(e) => setPrice(e.target.value)} sx={{mt: 2}}/>
+                        <TextField fullWidth label="Image URL" variant="outlined" value={hyperlink}
+                                   onChange={(e) => setHyperlink(e.target.value)} sx={{mt: 2}}/>
 
-                        <TextField
-                            fullWidth
-                            label="Cost"
-                            variant="outlined"
-                            value={name}
-                            onChange={(e) => setCost(e.target.value)}
-                            sx={{ mt: 2 }}
-                        />
-                        <TextField
-                            fullWidth
-                            label="Price"
-                            variant="outlined"
-                            value={name}
-                            onChange={(e) => setPrice(e.target.value)}
-                            sx={{ mt: 2 }}
-                        />
-                        <TextField
-                            fullWidth
-                            label="Image"
-                            variant="outlined"
-                            value={name}
-                            onChange={(e) => setHyperlink(e.target.value)}
-                            sx={{ mt: 2 }}
-                        />
-
-                        <Box sx={{ display: "flex", justifyContent: "space-between", mt: 3 }}>
+                        <Box sx={{display: "flex", justifyContent: "space-between", mt: 3}}>
                             <Button variant="contained" color="error" onClick={handleClose}>
                                 Close
                             </Button>

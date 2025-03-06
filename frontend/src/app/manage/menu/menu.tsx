@@ -11,14 +11,9 @@ import {
     TableRow
 } from "@mui/material";
 
-export default function MenuTable(){
-    const rows = [
-        {name: "Pizza", img: null, price: "12.49", cost: "2.35", quantity: "40"},
-        {name: "Burger", img: null, price: "12.49", cost: "2.35", quantity: "40"},
-        {name: "Fish and Chips", img: null, price: "12.49", cost: "2.35", quantity: "40"},
-    ];
-
-
+export default function MenuTable({rows, handleOnDelete}: { rows: { name: string; img: string | null; price: string; cost: string; quantity: string }[],
+                                  handleOnDelete: (name: string) => void; }
+                                  ) {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(3);
 
@@ -55,7 +50,7 @@ export default function MenuTable(){
                                     <TableCell>{row.price}</TableCell>
                                     <TableCell>{row.cost}</TableCell>
                                     <TableCell>{row.quantity}</TableCell>
-                                    <TableCell><Button color="error">Delete</Button></TableCell>
+                                    <TableCell><Button color="error" onClick={() => handleOnDelete(row.name)}>Delete</Button></TableCell>
                                 </TableRow>
                             ))}
                     </TableBody>
